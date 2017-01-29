@@ -1,4 +1,3 @@
-"use strict";
 var Coord = (function () {
     function Coord(width, height, x, y) {
         if (width === void 0) { width = 0; }
@@ -12,4 +11,5 @@ var Coord = (function () {
     }
     return Coord;
 }());
-exports.Coord = Coord;
+export { Coord };
+//# sourceMappingURL=index.js.map
