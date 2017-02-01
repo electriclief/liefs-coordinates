@@ -1,10 +1,11 @@
 export class Coord {
     static byEl(el, byRoot: boolean = true) {
         if (!el) return Coord.byWin();
+        let elWidth = el.style.width, elHeight = el.style.height;
         let x: number = el.offsetLeft, y: number = el.offsetTop;
         if (byRoot) for (x = 0, y = 0; el != null;
             x += el.offsetLeft, y += el.offsetTop, el = el.offsetParent);
-        return new Coord(el.style.width, el.style.height, x, y);
+        return new Coord(elWidth, elHeight, x, y);
     }
     static byWin() {
         let w = window, d = document, e = d.documentElement,
