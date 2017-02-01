@@ -10,20 +10,23 @@ var Coord = (function () {
         this.x = x;
         this.y = y;
     }
-    Coord.byEl = function (el, byRoot) {
+    Coord.prototype.updateSource = function (el, byRoot) {
         if (byRoot === void 0) { byRoot = true; }
-        if (!el)
-            return Coord.byWin();
-        var elWidth = el.style.width, elHeight = el.style.height;
-        var x = el.offsetLeft, y = el.offsetTop;
-        if (byRoot)
-            for (x = 0, y = 0; el != null; x += el.offsetLeft, y += el.offsetTop, el = el.offsetParent)
-                ;
-        return new Coord(elWidth, elHeight, x, y);
-    };
-    Coord.byWin = function () {
-        var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName("body")[0], width = w.innerWidth || e.clientWidth || g.clientWidth, height = w.innerHeight || e.clientHeight || g.clientHeight;
-        return new Coord(width, height, 0, 0);
+        if (!el) {
+            var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName("body")[0];
+            this.width = w.innerWidth || e.clientWidth || g.clientWidth;
+            this.height = w.innerHeight || e.clientHeight || g.clientHeight;
+            this.x = 0;
+            this.y = 0;
+        }
+        else {
+            this.width = el.style.width, this.height = el.style.height;
+            var x = el.offsetLeft, y = el.offsetTop;
+            if (byRoot)
+                for (x = 0, y = 0; el != null; x += el.offsetLeft, y += el.offsetTop, el = el.offsetParent)
+                    ;
+            this.x = x, this.y = y;
+        }
     };
     return Coord;
 }());
