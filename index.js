@@ -10,7 +10,7 @@ var Coord = (function () {
         this.x = x;
         this.y = y;
     }
-    Coord.prototype.updateSource = function (el, byRoot) {
+    Coord.prototype.getSource = function (el, byRoot) {
         if (byRoot === void 0) { byRoot = true; }
         if (!el) {
             var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName("body")[0];

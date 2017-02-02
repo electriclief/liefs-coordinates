@@ -6,7 +6,7 @@ export class Coord {
     constructor(width: number = 0, height: number = 0, x: number = 0, y: number = 0) {
         this.width = width; this.height = height; this.x = x; this.y = y;
     }
-    updateSource(el, byRoot: boolean = true) {
+    getSource(el, byRoot: boolean = true) {
         if (!el) {
             let w = window, d = document, e = d.documentElement,
                 g = d.getElementsByTagName("body")[0];
