@@ -20,12 +20,14 @@ var Coord = (function () {
             this.y = 0;
         }
         else {
-            this.width = el.style.width, this.height = el.style.height;
+            this.width = el.style.width;
+            this.height = el.style.height;
             var x = el.offsetLeft, y = el.offsetTop;
             if (byRoot)
                 for (x = 0, y = 0; el != null; x += el.offsetLeft, y += el.offsetTop, el = el.offsetParent)
                     ;
-            this.x = x, this.y = y;
+            this.x = x;
+            this.y = y;
         }
     };
     return Coord;

@@ -14,11 +14,11 @@ export class Coord {
             this.height = w.innerHeight || e.clientHeight || g.clientHeight;
             this.x = 0; this.y = 0;
         } else {
-            this.width = el.style.width, this.height = el.style.height;
+            this.width = el.style.width; this.height = el.style.height;
             let x: number = el.offsetLeft, y: number = el.offsetTop;
             if (byRoot) for (x = 0, y = 0; el != null;
                 x += el.offsetLeft, y += el.offsetTop, el = el.offsetParent);
-            this.x = x, this.y = y;
+            this.x = x; this.y = y;
         }
     }
 }
